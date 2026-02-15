@@ -19,6 +19,19 @@ export default defineConfig((config) => {
     build: {
       target: 'esnext',
     },
+    export default defineConfig((config) => {
+  return {
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    },
+    build: {
+      target: 'esnext',
+    },
+    server: {
+      host: true,
+      port: 5173,
+      allowedHosts: ['.sndhvn.me', 'localhost'],
+    },
     plugins: [
       nodePolyfills({
         include: ['buffer', 'process', 'util', 'stream'],
